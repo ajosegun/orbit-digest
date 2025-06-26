@@ -4,12 +4,12 @@ import os
 import re
 from datetime import datetime, time
 from typing import Dict, Any
-from dotenv import load_dotenv
-
-load_dotenv()
 
 import pytz
 from loguru import logger
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 def get_env_config() -> Dict[str, Any]:

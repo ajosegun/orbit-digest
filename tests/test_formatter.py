@@ -41,16 +41,20 @@ class TestDigestFormatter:
             digest = formatter.format_digest(events)
 
             expected_lines = [
-                "Good morning! Here's your schedule for today (Mon, June 26):",
+                "Dear Olusegun! ",
                 "",
-                "- 09:00 – 09:30: Team Standup",
+                "Here's your schedule for today (Mon, June 26):",
+                "",
+                "- 09:00 – 09:30 \n Summary: Team Standup",
                 "  Location: Zoom",
                 "  Attendees: alice@example.com, bob@example.com",
                 "  Description: Daily team sync",
-                "",
-                "- 13:00 – 14:00: Product Sync",
+                "\n<============================================================>\n",
+                "- 13:00 – 14:00 \n Summary: Product Sync",
                 "  Location: Conference Room A",
                 "  Attendees: charlie@example.com",
+                "\n<============================================================>\n",
+                "\nHere's to a day full of wins, big and small!",
             ]
 
             assert digest == "\n".join(expected_lines)
@@ -76,10 +80,14 @@ class TestDigestFormatter:
             digest = formatter.format_digest(events)
 
             expected_lines = [
-                "Good morning! Here's your schedule for today (Mon, June 26):",
+                "Dear Olusegun! ",
                 "",
-                "- 09:00 – 09:30: Team Standup",
+                "Here's your schedule for today (Mon, June 26):",
+                "",
+                "- 09:00 – 09:30 \n Summary: Team Standup",
                 "  Attendees: alice@example.com",
+                "\n<============================================================>\n",
+                "\nHere's to a day full of wins, big and small!",
             ]
 
             assert digest == "\n".join(expected_lines)
@@ -105,10 +113,14 @@ class TestDigestFormatter:
             digest = formatter.format_digest(events)
 
             expected_lines = [
-                "Good morning! Here's your schedule for today (Mon, June 26):",
+                "Dear Olusegun! ",
                 "",
-                "- 10:00 – 11:00: Focus Time",
+                "Here's your schedule for today (Mon, June 26):",
+                "",
+                "- 10:00 – 11:00 \n Summary: Focus Time",
                 "  Location: Home Office",
+                "\n<============================================================>\n",
+                "\nHere's to a day full of wins, big and small!",
             ]
 
             assert digest == "\n".join(expected_lines)
@@ -152,7 +164,7 @@ class TestDigestFormatter:
             digest = formatter.format_digest(events)
 
             # Should show the local time (5:00 AM)
-            assert "05:00 – 05:30" in digest
+            assert "- 05:00 – 05:30" in digest
 
     def test_format_digest_with_description(self):
         """Test formatting digest with event description."""
@@ -177,12 +189,16 @@ class TestDigestFormatter:
             digest = formatter.format_digest(events)
 
             expected_lines = [
-                "Good morning! Here's your schedule for today (Mon, June 26):",
+                "Dear Olusegun! ",
                 "",
-                "- 09:00 – 09:30: Team Standup",
+                "Here's your schedule for today (Mon, June 26):",
+                "",
+                "- 09:00 – 09:30 \n Summary: Team Standup",
                 "  Location: Zoom",
                 "  Attendees: alice@example.com",
                 "  Description: Daily team sync to discuss progress and blockers",
+                "\n<============================================================>\n",
+                "\nHere's to a day full of wins, big and small!",
             ]
 
             assert digest == "\n".join(expected_lines)
