@@ -26,6 +26,7 @@ class TestOrbitDigest:
             "digest_hour": 7,
             "quiet_hours_start": 22,
             "quiet_hours_end": 7,
+            "sender_email": "test@example.com",
         }
         mock_get_config.return_value = mock_config
 
@@ -66,6 +67,7 @@ class TestOrbitDigest:
             "digest_hour": 7,
             "quiet_hours_start": 22,
             "quiet_hours_end": 7,
+            "sender_email": "test@example.com",
         }
         mock_get_config.return_value = mock_config
 
@@ -123,6 +125,7 @@ class TestOrbitDigest:
             "digest_hour": 7,
             "quiet_hours_start": 22,
             "quiet_hours_end": 7,
+            "sender_email": "test@example.com",
         }
         mock_get_config.return_value = mock_config
 
@@ -169,6 +172,7 @@ class TestOrbitDigest:
             "digest_hour": 7,
             "quiet_hours_start": 22,
             "quiet_hours_end": 7,
+            "sender_email": "test@example.com",
         }
         mock_get_config.return_value = mock_config
 
@@ -214,6 +218,7 @@ class TestOrbitDigest:
             "digest_hour": 7,
             "quiet_hours_start": 22,
             "quiet_hours_end": 7,
+            "sender_email": "test@example.com",
         }
         mock_get_config.return_value = mock_config
 

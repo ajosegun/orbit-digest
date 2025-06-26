@@ -1,6 +1,9 @@
 import os
 from datetime import datetime, time
 from unittest.mock import patch
+from dotenv import load_dotenv
+
+load_dotenv()
 
 import pytest
 import pytz
@@ -30,6 +33,7 @@ class TestUtils:
                 "QUIET_HOURS_START": "22",
                 "QUIET_HOURS_END": "07",
                 "EMAIL_RECIPIENT": "test@example.com",
+                "SENDER_EMAIL": "test@example.com",
             },
         ):
             config = get_env_config()
@@ -38,6 +42,7 @@ class TestUtils:
             assert config["quiet_hours_start"] == 22
             assert config["quiet_hours_end"] == 7
             assert config["email_recipient"] == "test@example.com"
+            assert config["sender_email"] == "test@example.com"
 
     def test_get_env_config_missing_required(self):
         """Test that missing required environment variables raise ValueError."""
@@ -61,6 +66,7 @@ class TestUtils:
                 "QUIET_HOURS_START": "22",
                 "QUIET_HOURS_END": "07",
                 "EMAIL_RECIPIENT": "test@example.com",
+                "SENDER_EMAIL": "test@example.com",
             },
         ):
             with pytest.raises(ValueError, match="Invalid hour value"):
@@ -71,6 +77,7 @@ class TestUtils:
         assert validate_timezone("Europe/London") == "Europe/London"
         assert validate_timezone("America/New_York") == "America/New_York"
         assert validate_timezone("UTC") == "UTC"
+        assert validate_timezone("Europe/Berlin") == "Europe/Berlin"
 
     def test_validate_timezone_invalid(self):
         """Test that invalid timezone strings raise ValueError."""
