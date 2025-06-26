@@ -44,7 +44,9 @@ class DigestFormatter:
 
         # Build digest
         lines = [
-            f"Good morning! Here's your schedule for today ({day_name}, {month_name} {day}):",
+            "Dear Olusegun! ",
+            "",
+            f"Here's your schedule for today ({day_name}, {month_name} {day}):",
             "",
         ]
 
@@ -54,7 +56,7 @@ class DigestFormatter:
             end_time = event.end.strftime("%H:%M")
 
             # Add event line
-            lines.append(f"- {start_time} – {end_time}: {event.summary}")
+            lines.append(f"- {start_time} – {end_time} \n Summary: {event.summary}")
 
             # Add location if available
             if event.location:
@@ -70,8 +72,11 @@ class DigestFormatter:
                 lines.append(f"  Description: {event.description}")
 
             # Add spacing between events
-            lines.append("")
+            lines.append(
+                "\n<============================================================>\n"
+            )
 
+        lines.append("\nHere’s to a day full of wins, big and small!")
         # Remove trailing empty line
         if lines and lines[-1] == "":
             lines.pop()

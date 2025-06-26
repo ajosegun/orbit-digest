@@ -26,7 +26,7 @@ class OrbitDigest:
 
         self.email_sender = EmailSender(
             api_key=self.config["resend_api_key"],
-            sender_email="noreply@orbitdigest.com",  # Default sender
+            sender_email=self.config["sender_email"],  # Default sender
         )
 
         self.formatter = DigestFormatter(
@@ -85,20 +85,20 @@ def main():
         level="INFO",
     )
 
-    try:
-        digest = OrbitDigest()
-        success = digest.run_digest()
+    # try:
+    digest = OrbitDigest()
+    success = digest.run_digest()
 
-        if success:
-            logger.info("OrbitDigest completed successfully")
-            return 0
-        else:
-            logger.error("OrbitDigest failed")
-            return 1
-
-    except Exception as e:
-        logger.error(f"Fatal error in OrbitDigest: {e}")
+    if success:
+        logger.info("OrbitDigest completed successfully")
+        return 0
+    else:
+        logger.error("OrbitDigest failed")
         return 1
+
+    # except Exception as e:
+    #     logger.error(f"Fatal error in OrbitDigest: {e}")
+    #     return 1
 
 
 if __name__ == "__main__":

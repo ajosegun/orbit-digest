@@ -4,6 +4,9 @@ import os
 import re
 from datetime import datetime, time
 from typing import Dict, Any
+from dotenv import load_dotenv
+
+load_dotenv()
 
 import pytz
 from loguru import logger
@@ -25,6 +28,7 @@ def get_env_config() -> Dict[str, Any]:
         "GOOGLE_CLIENT_SECRET",
         "RESEND_API_KEY",
         "EMAIL_RECIPIENT",
+        "SENDER_EMAIL",
         "TIMEZONE",
         "DIGEST_HOUR",
         "QUIET_HOURS_START",
@@ -46,6 +50,7 @@ def get_env_config() -> Dict[str, Any]:
         "resend_api_key": os.getenv("RESEND_API_KEY"),
         "email_recipient": os.getenv("EMAIL_RECIPIENT"),
         "timezone": validate_timezone(os.getenv("TIMEZONE")),
+        "sender_email": os.getenv("SENDER_EMAIL"),
     }
 
     # Validate numeric values

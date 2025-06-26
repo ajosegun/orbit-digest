@@ -19,9 +19,11 @@ class EmailSender:
             api_key: Resend API key.
             sender_email: Email address to send from.
         """
-        self.client = resend.Resend(api_key=api_key)
+
+        resend.api_key = api_key
+        self.client = resend
         self.sender_email = sender_email
-        logger.info(f"Email sender initialized with sender: {sender_email}")
+        logger.info(f"Email sender initialized with sender: {self.sender_email}")
 
     def send_email(self, recipient: str, subject: str, body: str) -> bool:
         """
@@ -49,7 +51,7 @@ class EmailSender:
             return False
 
         try:
-            response = self.client.emails.send(
+            response = self.client.Emails.send(
                 {
                     "from": self.sender_email,
                     "to": [recipient],

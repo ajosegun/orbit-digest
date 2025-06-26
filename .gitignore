@@ -2,6 +2,8 @@
 .env
 .env.local
 .env.*.local
+secrets/*
+.deepeval
 
 # Python
 __pycache__/
