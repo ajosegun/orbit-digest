@@ -3,7 +3,9 @@
 .env.local
 .env.*.local
 secrets/*
+calendar-digest-prd-01.md
 .deepeval
+
 
 # Python
 __pycache__/
