@@ -3,7 +3,7 @@ name: Daily Calendar Digest
 on:
   schedule:
     # Run at 6 AM UTC (7 AM GMT+1 for Europe/Lagos)
-    - cron: '0 6 * * *'
+    - cron: '0 5 * * *'
   workflow_dispatch:
     # Allow manual trigger
 
