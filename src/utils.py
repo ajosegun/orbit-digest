@@ -7,9 +7,9 @@ from typing import Dict, Any
 
 import pytz
 from loguru import logger
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
-load_dotenv()
+# load_dotenv()
 
 
 def get_env_config() -> Dict[str, Any]:

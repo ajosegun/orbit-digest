@@ -1,7 +1,6 @@
 import os
 from datetime import datetime, time
 from unittest.mock import patch
-from dotenv import load_dotenv
 
 
 import pytest
@@ -13,8 +12,6 @@ from src.utils import (
     parse_time_string,
     validate_timezone,
 )
-
-load_dotenv()
 
 
 class TestUtils:

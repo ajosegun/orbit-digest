@@ -2,10 +2,10 @@
 
 from typing import Dict, Any
 
-from .calendar import CalendarService
-from .email_sender import EmailSender
-from .formatter import DigestFormatter
-from .utils import get_env_config
+from src.calendar import CalendarService
+from src.email_sender import EmailSender
+from src.formatter import DigestFormatter
+from src.utils import get_env_config
 from loguru import logger
 
 

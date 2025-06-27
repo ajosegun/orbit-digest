@@ -76,7 +76,7 @@ class DigestFormatter:
                 "\n<============================================================>\n"
             )
 
-        lines.append("\nHere’s to a day full of wins, big and small!")
+        lines.append("\nHere's to a day full of wins, big and small!")
         # Remove trailing empty line
         if lines and lines[-1] == "":
             lines.pop()

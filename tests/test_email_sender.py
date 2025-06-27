@@ -106,9 +106,9 @@ class TestEmailSender:
             result = sender.send_digest("recipient@example.com", "Test digest content")
 
             assert result is True
-            mock_client.emails.send.assert_called_once()
+            mock_client.Emails.send.assert_called_once()
 
-            call_args = mock_client.emails.send.call_args[0][0]
+            call_args = mock_client.Emails.send.call_args[0][0]
             assert call_args["from"] == "sender@example.com"
             assert call_args["to"] == ["recipient@example.com"]
             assert "Your schedule for today" in call_args["subject"]
